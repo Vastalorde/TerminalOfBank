@@ -1,31 +1,31 @@
+import java.util.Scanner;
 public class ATM {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        String cardNum = "6228123123"; // номер карты
-        int pwd = 888888; // пароль
-        boolean flag = true; // объявляем логическую переменную
-        double surplus = 1000;// баланс
+        String cardNum = "6228123123";
+        int pwd = 888888;
+        boolean flag = true;
+        double surplus = 1000;
 
-        // интерфейс
-        System.out.println("--------- Добро пожаловать в банкомат ICBC ---------");
+        System.out.println("--------- Welcome to ICBC ATM ---------");
 
-        / ** Ограничивает количество логинов ** /
+
         for (int i = 1; i <= 3; i++) {
-            System.out.println("Пожалуйста, вставьте свою банковскую карту:");
+            System.out.println("Please insert your bank card:");
             String inputCard = input.next();
-            System.out.println("Пожалуйста, введите ваш пароль:");
+            System.out.println("Please enter your password:");
             int inputPwd = input.nextInt();
 
-            // проверяем аккаунт и пароль
+
             if (inputCard.equals(cardNum) && inputPwd == pwd) {
                 flag = true;
                 break;
             } else {
                 if (i <= 2) {
-                    System.out.println("Извините, пароль неверный, у вас все еще есть" + (3 - i) + "Второй шанс!);
+                    System.out.println("Sorry, the password is wrong, you still have " + " " + (3 - i)+ " " + "Attempts");
                 } else {
-                    System.out.println("Извините, ваша карта заблокирована!");
+                    System.out.println("Sorry, your card has been blocked!");
                     break;
                 }
                 flag = false;
